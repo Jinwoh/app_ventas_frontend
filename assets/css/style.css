@@ -36,6 +36,15 @@ body {
     var(--bg);
   color: var(--text);
 }
+/* Base: cerrado */
+.menu-mobile {
+  display: none;
+}
+
+/* Abierto */
+.menu-mobile.is-open {
+  display: block;
+}
 
 img {
   max-width: 200px !important;

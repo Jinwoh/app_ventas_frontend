@@ -26,6 +26,10 @@
 
     <link rel="stylesheet" href="./assets/css/style.css" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@tailwindplus/elements@1"
+      type="module"
+    ></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -163,12 +167,95 @@
             </button>
 
             <!-- Mobile Menu Button -->
+            <!-- Botón hamburguesa (abre) -->
             <button
               type="button"
-              class="md:hidden p-2 text-slate-600 dark:text-slate-300"
+              command="show-modal"
+              commandfor="mobile-menu"
+              class="md:hidden p-2 rounded-lg"
             >
               <span class="material-symbols-outlined">menu</span>
             </button>
+
+            <!-- Menú móvil (modal) -->
+            <el-dialog>
+              <dialog
+                id="mobile-menu"
+                class="backdrop:bg-transparent md:hidden"
+              >
+                <div tabindex="0" class="fixed inset-0 focus:outline-none">
+                  <el-dialog-panel
+                    class="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-white dark:bg-slate-900 p-6 sm:max-w-sm sm:ring-1 sm:ring-slate-200/60 dark:sm:ring-slate-700/60"
+                  >
+                    <!-- Header del panel -->
+                    <div class="flex items-center justify-between">
+                      <span
+                        class="text-sm font-semibold text-slate-900 dark:text-white"
+                        >Menú</span
+                      >
+
+                      <!-- Botón cerrar -->
+                      <button
+                        type="button"
+                        command="close"
+                        commandfor="mobile-menu"
+                        class="p-2 rounded-lg text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800"
+                      >
+                        <span class="material-symbols-outlined">close</span>
+                      </button>
+                    </div>
+
+                    <!-- Links -->
+                    <div class="mt-6 space-y-2">
+                      <a
+                        class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+                        href="#"
+                        >Inicio</a
+                      >
+                      <a
+                        class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+                        href="#"
+                        >Productos</a
+                      >
+                      <a
+                        class="block px-3 py-2 rounded-lg text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800"
+                        href="#"
+                        >Sobre Nosotros</a
+                      >
+                      <!-- Contacto (Mobile) -->
+                      <details class="group">
+                        <summary
+                          class="list-none flex items-center justify-between px-3 py-2 rounded-lg text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 cursor-pointer"
+                        >
+                          <span>Contacto</span>
+                          <span
+                            class="material-symbols-outlined text-base transition-transform group-open:rotate-180"
+                          >
+                            expand_more
+                          </span>
+                        </summary>
+
+                        <div class="mt-2 space-y-1 pl-2">
+                          <a
+                            class="block px-3 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg"
+                            href="#"
+                            >Email</a
+                          >
+
+                          <a
+                            class="block px-3 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-800 rounded-lg"
+                            href="https://wa.me/595981830246?text=Hola%20quiero%20más%20información."
+                            target="_blank"
+                            rel="noopener"
+                            >WhatsApp</a
+                          >
+                        </div>
+                      </details>
+                    </div>
+                  </el-dialog-panel>
+                </div>
+              </dialog>
+            </el-dialog>
           </div>
         </div>
       </div>
@@ -601,5 +688,15 @@
       </div>
     </footer>
     <script type="module" src="./assets/js/main.js"></script>
+
+    <script>
+      const btn = document.getElementById("btnMobileMenu");
+      const menu = document.getElementById("mobileMenu");
+
+      btn.addEventListener("click", () => {
+        const isOpen = menu.classList.toggle("open");
+        btn.setAttribute("aria-expanded", String(isOpen));
+      });
+    </script>
   </body>
 </html>
