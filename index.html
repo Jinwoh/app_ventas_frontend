@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Fuzors Store</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght@100..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#137fec",
+              "background-light": "#f6f7f8",
+              "background-dark": "#101922",
+            },
+            fontFamily: {
+              display: ["Inter", "sans-serif"],
+            },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      body {
+        font-family: "Inter", sans-serif;
+      }
+    </style>
+  </head>
+
+  <body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display antialiased"
+  >
+    <!-- Top Navigation Bar -->
+    <nav
+      class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/90 backdrop-blur-md border-b border-slate-200 dark:border-slate-800"
+    >
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex items-center justify-between h-16 md:h-20">
+          <!-- Logo & Brand -->
+          <div class="flex items-center gap-2 md:gap-4 shrink-0">
+            <div class="text-primary">
+              <span class="material-symbols-outlined text-3xl md:text-4xl"
+                >security</span
+              >
+            </div>
+            <h1
+              class="text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-white"
+            >
+              Fuzors Store
+            </h1>
+          </div>
+
+          <!-- Desktop Navigation Links -->
+          <div class="hidden md:flex items-center gap-8">
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+              href="#"
+              >Inicio</a
+            >
+            <a
+              class="text-sm font-medium text-primary dark:text-primary"
+              href="#"
+              >Productos</a
+            >
+            <a
+              class="text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+              href="#"
+              >Sobre Nosotros</a
+            >
+
+            <!-- Contact Dropdown -->
+            <div class="relative group">
+              <button
+                type="button"
+                class="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-primary dark:text-slate-300 dark:hover:text-primary transition-colors"
+              >
+                <span>Contacto</span>
+                <span class="material-symbols-outlined text-base"
+                  >expand_more</span
+                >
+              </button>
+
+              <div
+                class="absolute top-full right-0 mt-2 w-48 bg-white dark:bg-slate-800 rounded-lg shadow-xl border border-slate-100 dark:border-slate-700 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-right"
+              >
+                <a
+                  class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-t-lg"
+                  href="#"
+                  >Email</a
+                >
+                <a
+                  class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700"
+                  href="#"
+                  >WhatsApp</a
+                >
+                <a
+                  class="block px-4 py-2 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 rounded-b-lg"
+                  href="#"
+                  >Ubicación</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Search & Actions -->
+          <div class="flex items-center gap-4">
+            <!-- Search Input (Desktop) -->
+            <div
+              class="hidden lg:flex items-center bg-slate-100 dark:bg-slate-800 rounded-lg px-3 py-2 w-64"
+            >
+              <span class="material-symbols-outlined text-slate-400"
+                >search</span
+              >
+              <input
+                class="bg-transparent border-none focus:ring-0 text-sm w-full text-slate-900 dark:text-white placeholder-slate-500 dark:placeholder-slate-400"
+                placeholder="Buscar productos..."
+                type="text"
+              />
+            </div>
+
+            <!-- Mobile Search Icon -->
+            <button
+              type="button"
+              class="lg:hidden p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
+            >
+              <span class="material-symbols-outlined">search</span>
+            </button>
+
+            <!-- Mobile Menu Button -->
+            <button
+              type="button"
+              class="md:hidden p-2 text-slate-600 dark:text-slate-300"
+            >
+              <span class="material-symbols-outlined">menu</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Main Content Wrapper -->
+    <main
+      class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-10"
+    >
+      <!-- Hero Section (simple placeholder) -->
+      <section
+        class="relative w-full rounded-2xl overflow-hidden bg-slate-900 min-h-[260px] flex items-center"
+      >
+        <div
+          class="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/60 to-transparent"
+        ></div>
+        <div class="relative z-10 px-6 md:px-12 lg:px-16 max-w-2xl text-white">
+          <div
+            class="inline-flex items-center gap-2 bg-primary/20 backdrop-blur-sm border border-primary/30 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider mb-4"
+          >
+            <span class="w-2 h-2 rounded-full bg-primary animate-pulse"></span>
+            Videovigilancia
+          </div>
+          <h2
+            class="text-3xl md:text-4xl font-black tracking-tight leading-tight mb-3"
+          >
+            Cámaras de seguridad y sistemas CCTV
+          </h2>
+          <p
+            class="text-slate-300 text-base md:text-lg mb-6 leading-relaxed max-w-lg"
+          >
+            Catálogo dinámico conectado a tu API de Django.
+          </p>
+          <div class="flex flex-wrap gap-3">
+            <a
+              href="#productos"
+              class="bg-primary hover:bg-blue-600 text-white font-bold py-2.5 px-6 rounded-lg transition-all shadow-lg shadow-primary/30"
+            >
+              Ver catálogo
+            </a>
+            <a
+              href="#contacto"
+              class="bg-white/10 hover:bg-white/20 backdrop-blur-md text-white font-semibold py-2.5 px-6 rounded-lg transition-all border border-white/20"
+            >
+              Contacto
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category Highlight Strip -->
+      <section>
+        <h3
+          class="text-xl font-bold text-slate-900 dark:text-white mb-6 flex items-center gap-2"
+        >
+          <span class="material-symbols-outlined text-primary">category</span>
+          Categorías
+        </h3>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <a
+            class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all p-4 flex flex-col items-center text-center gap-3"
+            href="#"
+          >
+            <div
+              class="p-3 bg-blue-50 dark:bg-slate-700 rounded-full text-primary group-hover:scale-110 transition-transform"
+            >
+              <span class="material-symbols-outlined text-3xl">videocam</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white">
+                Cámaras IP
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Network
+              </p>
+            </div>
+          </a>
+
+          <a
+            class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all p-4 flex flex-col items-center text-center gap-3"
+            href="#"
+          >
+            <div
+              class="p-3 bg-blue-50 dark:bg-slate-700 rounded-full text-primary group-hover:scale-110 transition-transform"
+            >
+              <span class="material-symbols-outlined text-3xl"
+                >settings_input_antenna</span
+              >
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white">
+                Video Balun
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Conectividad
+              </p>
+            </div>
+          </a>
+
+          <a
+            class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all p-4 flex flex-col items-center text-center gap-3"
+            href="#"
+          >
+            <div
+              class="p-3 bg-blue-50 dark:bg-slate-700 rounded-full text-primary group-hover:scale-110 transition-transform"
+            >
+              <span class="material-symbols-outlined text-3xl">power</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white">Fuentes</h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Energía
+              </p>
+            </div>
+          </a>
+
+          <a
+            class="group relative overflow-hidden rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all p-4 flex flex-col items-center text-center gap-3"
+            href="#"
+          >
+            <div
+              class="p-3 bg-blue-50 dark:bg-slate-700 rounded-full text-primary group-hover:scale-110 transition-transform"
+            >
+              <span class="material-symbols-outlined text-3xl">cable</span>
+            </div>
+            <div>
+              <h4 class="font-bold text-slate-900 dark:text-white">
+                Cables UTP
+              </h4>
+              <p class="text-xs text-slate-500 dark:text-slate-400 mt-1">
+                Networking
+              </p>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Main Grid Layout: Sidebar + Products -->
+      <div class="flex flex-col lg:flex-row gap-8 items-start" id="productos">
+        <!-- Sidebar Filter -->
+        <aside
+          class="w-full lg:w-64 shrink-0 space-y-8 bg-white dark:bg-slate-800 p-6 rounded-xl border border-slate-200 dark:border-slate-700 sticky top-24"
+        >
+          <div
+            class="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-700"
+          >
+            <h3 class="font-bold text-slate-900 dark:text-white">Filtros</h3>
+            <button
+              type="button"
+              class="text-xs text-primary font-medium hover:underline"
+            >
+              Limpiar todo
+            </button>
+          </div>
+
+          <div>
+            <h4
+              class="text-sm font-semibold text-slate-900 dark:text-white mb-3"
+            >
+              Ordenar por precio
+            </h4>
+            <select
+              class="w-full text-sm rounded-lg border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700 text-slate-700 dark:text-slate-200 focus:ring-primary focus:border-primary"
+            >
+              <option>De menor a mayor</option>
+              <option>De mayor a menor</option>
+              <option>Lo más nuevo primero</option>
+            </select>
+          </div>
+
+          <div>
+            <h4
+              class="text-sm font-semibold text-slate-900 dark:text-white mb-3"
+            >
+              Tipo
+            </h4>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input
+                  class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4"
+                  type="checkbox"
+                />
+                <span
+                  class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors"
+                  >Cámaras IP</span
+                >
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input
+                  class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4"
+                  type="checkbox"
+                />
+                <span
+                  class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors"
+                  >Analógicas</span
+                >
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input
+                  class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4"
+                  type="checkbox"
+                />
+                <span
+                  class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors"
+                  >PTZ</span
+                >
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <h4
+              class="text-sm font-semibold text-slate-900 dark:text-white mb-3"
+            >
+              Marcas
+            </h4>
+            <div class="space-y-2">
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input
+                  class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4"
+                  type="checkbox"
+                />
+                <span
+                  class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors"
+                  >Hikvision</span
+                >
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input
+                  class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4"
+                  type="checkbox"
+                />
+                <span
+                  class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors"
+                  >Dahua</span
+                >
+              </label>
+              <label class="flex items-center gap-3 cursor-pointer group">
+                <input
+                  class="rounded border-slate-300 text-primary focus:ring-primary h-4 w-4"
+                  type="checkbox"
+                />
+                <span
+                  class="text-sm text-slate-600 dark:text-slate-400 group-hover:text-primary transition-colors"
+                  >Uniview</span
+                >
+              </label>
+            </div>
+          </div>
+        </aside>
+
+        <!-- Product Grid -->
+        <div class="flex-1">
+          <div class="flex items-center justify-between mb-6">
+            <h2 class="text-2xl font-bold text-slate-900 dark:text-white">
+              Productos
+            </h2>
+            <span
+              id="results-info"
+              class="text-sm text-slate-500 dark:text-slate-400"
+            ></span>
+          </div>
+
+          <!-- JS injects cards here -->
+          <div
+            id="products-grid"
+            class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6"
+          ></div>
+
+          <!-- Pagination (estática por ahora) -->
+          <div class="flex justify-center mt-10">
+            <nav class="flex gap-2">
+              <a
+                class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+                href="#"
+                >Previous</a
+              >
+              <a class="px-4 py-2 bg-primary text-white rounded-lg" href="#"
+                >1</a
+              >
+              <a
+                class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+                href="#"
+                >2</a
+              >
+              <a
+                class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+                href="#"
+                >3</a
+              >
+              <a
+                class="px-4 py-2 border border-slate-200 dark:border-slate-700 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-600 dark:text-slate-300"
+                href="#"
+                >Next</a
+              >
+            </nav>
+          </div>
+        </div>
+      </div>
+
+      <!-- Trust & Security Strip -->
+      <div
+        class="grid grid-cols-2 md:grid-cols-4 gap-6 py-10 border-t border-slate-200 dark:border-slate-700"
+      >
+        <div class="flex flex-col items-center text-center gap-2">
+          <span class="material-symbols-outlined text-4xl text-primary"
+            >verified_user</span
+          >
+          <h4 class="font-bold text-slate-900 dark:text-white">Garantía</h4>
+          <p class="text-sm text-slate-500">Productos verificados</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-2">
+          <span class="material-symbols-outlined text-4xl text-primary"
+            >support_agent</span
+          >
+          <h4 class="font-bold text-slate-900 dark:text-white">Soporte</h4>
+          <p class="text-sm text-slate-500">Asistencia técnica</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-2">
+          <span class="material-symbols-outlined text-4xl text-primary"
+            >local_shipping</span
+          >
+          <h4 class="font-bold text-slate-900 dark:text-white">Envíos</h4>
+          <p class="text-sm text-slate-500">Rápidos y seguros</p>
+        </div>
+        <div class="flex flex-col items-center text-center gap-2">
+          <span class="material-symbols-outlined text-4xl text-primary"
+            >lock</span
+          >
+          <h4 class="font-bold text-slate-900 dark:text-white">
+            Compra segura
+          </h4>
+          <p class="text-sm text-slate-500">Transacciones protegidas</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer
+      class="bg-slate-900 text-white py-12 border-t border-slate-800"
+      id="contacto"
+    >
+      <div class="max-w-[1280px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div>
+            <div class="flex items-center gap-2 mb-6">
+              <span class="material-symbols-outlined text-3xl text-primary"
+                >security</span
+              >
+              <h2 class="text-xl font-bold">Fuzors Store</h2>
+            </div>
+            <p class="text-slate-400 text-sm mb-6 leading-relaxed">
+              Catálogo conectado a tu API: agregás productos en Django Admin y
+              aparecen acá.
+            </p>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-white">Links</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  class="text-slate-400 hover:text-white text-sm transition-colors"
+                  href="#"
+                  >Sobre Nosotros</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-slate-400 hover:text-white text-sm transition-colors"
+                  href="#contacto"
+                  >Contacto</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-white">Categorías</h3>
+            <ul class="space-y-3">
+              <li>
+                <a
+                  class="text-slate-400 hover:text-white text-sm transition-colors"
+                  href="#"
+                  >Cámaras IP</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-slate-400 hover:text-white text-sm transition-colors"
+                  href="#"
+                  >DVR/NVR</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-slate-400 hover:text-white text-sm transition-colors"
+                  href="#"
+                  >Accesorios</a
+                >
+              </li>
+              <li>
+                <a
+                  class="text-slate-400 hover:text-white text-sm transition-colors"
+                  href="#"
+                  >Cableado</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h3 class="text-lg font-bold mb-4 text-white">Contacto</h3>
+            <ul class="space-y-3">
+              <li class="flex items-start gap-3">
+                <span
+                  class="material-symbols-outlined text-slate-500 text-sm mt-0.5"
+                  >location_on</span
+                >
+                <span class="text-slate-400 text-sm">Asunción, Paraguay</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-slate-500 text-sm"
+                  >call</span
+                >
+                <span class="text-slate-400 text-sm">+595 XXX XXX</span>
+              </li>
+              <li class="flex items-center gap-3">
+                <span class="material-symbols-outlined text-slate-500 text-sm"
+                  >mail</span
+                >
+                <span class="text-slate-400 text-sm"
+                  >ventas@fuzorsstore.com</span
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-slate-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <p class="text-slate-500 text-sm">
+            © 2026 Fuzors Store. All rights reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <!-- App JS -->
+    <script type="module" src="./assets/js/main.js"></script>
+  </body>
+</html>
