@@ -68,9 +68,6 @@ function productCardHTML(p) {
             <span class="text-lg font-bold text-slate-900 dark:text-white">${precio}</span>
             ${stockLabel(Boolean(p.activo))}
           </div>
-
-          <button class="bg-primary hover:bg-blue-600 text-white p-2 rounded-lg transition-colors" type="button">
-            <span class="material-symbols-outlined">add_shopping_cart</span>
           </button>
         </div>
       </div>
